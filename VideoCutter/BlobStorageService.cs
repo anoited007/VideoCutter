@@ -1,7 +1,6 @@
 ﻿using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System.Configuration;
-using System.Diagnostics;
 
 namespace VideoCutter
 {
@@ -17,7 +16,7 @@ namespace VideoCutter
             CloudBlobContainer blobContainer = blobClient.GetContainerReference("videocutter");
             if (blobContainer.CreateIfNotExists())
             {
-                // Enable public access on the newly created "photogallery" container.
+                // Enable public access on the newly created "videocutter" container.
                 blobContainer.SetPermissions(
                     new BlobContainerPermissions
                     {

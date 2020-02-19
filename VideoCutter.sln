@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoCutter", "VideoCutter\VideoCutter.csproj", "{E9B46AF0-50C1-4F46-80A3-8765C2C94252}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoCutter-WebJob", "VideoCutter-WebJob\VideoCutter-WebJob.csproj", "{A8B5B81E-6193-4E9A-A175-317683402898}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E9B46AF0-50C1-4F46-80A3-8765C2C94252}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9B46AF0-50C1-4F46-80A3-8765C2C94252}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9B46AF0-50C1-4F46-80A3-8765C2C94252}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8B5B81E-6193-4E9A-A175-317683402898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8B5B81E-6193-4E9A-A175-317683402898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8B5B81E-6193-4E9A-A175-317683402898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8B5B81E-6193-4E9A-A175-317683402898}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
