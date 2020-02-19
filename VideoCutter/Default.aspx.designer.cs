@@ -10,7 +10,7 @@
 namespace VideoCutter {
     
     
-    public partial class Default {
+    public partial class _Default {
         
         /// <summary>
         /// Head1 control.
@@ -67,13 +67,13 @@ namespace VideoCutter {
         protected global::System.Web.UI.UpdatePanel up1;
         
         /// <summary>
-        /// ThumbnailDisplayControl control.
+        /// VideoCutterDisplayControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ThumbnailDisplayControl;
+        protected global::System.Web.UI.WebControls.ListView VideoCutterDisplayControl;
         
         /// <summary>
         /// timer1 control.
