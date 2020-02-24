@@ -10,14 +10,17 @@ namespace VideoCutter_WebJob
     public class Functions
     {
         
-        public static void GenerateThumbnail(
+        public static void GenerateVideo(
         [QueueTrigger("videocutter")] String blobInfo,
-        [Blob("photogallery/videos/{queueTrigger}")] CloudBlockBlob inputBlob,
-        [Blob("photogallery/videos/{queueTrigger}")] CloudBlockBlob outputBlob, TextWriter logger)
+        [Blob("videocutter/videos/{queueTrigger}")] CloudBlockBlob inputBlob,
+        [Blob("videocutter/videostrim/{queueTrigger}")] CloudBlockBlob outputBlob, TextWriter logger)
         {
             //use log.WriteLine() rather than Console.WriteLine() for trace output
             logger.WriteLine("GenerateVideo() started...");
             logger.WriteLine("Input blob is: " + blobInfo);
+            logger.WriteLine(inputBlob.Exists());
+            logger.WriteLine(inputBlob.Uri);
+            
 
             // Open streams to blobs for reading and writing as appropriate.
             // Pass references to application specific methods
