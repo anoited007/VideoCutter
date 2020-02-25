@@ -10,9 +10,11 @@
     <form id="form1" runat="server">
         <asp:ScriptManager ID="sm1" runat="server" />
         <div>
-            Upload Video:
+            Upload Video: <br />
             <asp:FileUpload ID="upload" runat="server" />
             <asp:Button ID="submitButton" runat="server" Text="Submit" OnClick="submitButton_Click" />
+            <%--<asp:Button ID="refreshButton" runat="server" Text="Refresh" OnClick="Page_PreRender" title="Refresh to show latest trimmed videos"/>--%>
+            <hr />
         </div>
         <div>
             <asp:UpdatePanel ID="up1" runat="server">
@@ -26,7 +28,7 @@
                             <asp:Literal ID="label" Text='<%# Eval("Title") %>' runat="server"/>
                         </ItemTemplate>
                     </asp:ListView>
-                    <asp:Timer ID="timer1" runat="server" Interval="1000" />
+                     <asp:Timer ID="timer1" runat="server" Interval="10000" />
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
