@@ -18,6 +18,8 @@ namespace VideoCutter_WebJob
             //use log.WriteLine() rather than Console.WriteLine() for trace output
             logger.WriteLine("GenerateVideo() started...");
             logger.WriteLine("Input blob is: " + blobInfo);
+
+            //Add debugging lines to check if blob exists and if it's in the right containter
             logger.WriteLine(inputBlob.Exists());
             logger.WriteLine(inputBlob.Uri);
             
@@ -27,13 +29,24 @@ namespace VideoCutter_WebJob
             using (Stream input = inputBlob.OpenRead())
             using (Stream output = outputBlob.OpenWrite())
             {
-                CreateVideoSample(input, output, 5);
+                
+                CreateVideoSample(input, output);
                 outputBlob.Properties.ContentType = "video/mp4";
+
+                if (inputBlob.Metadata.ContainsKey("Title"))
+                {
+                    outputBlob.Metadata["Title"] = inputBlob.Metadata["Title"];
+                }
+                else
+                {
+                    outputBlob.Metadata["Title"] = " ";
+                }
             }
             logger.WriteLine("GenerateVideo() completed...");
         }
 
-        private static void CreateVideoSample(Stream input, Stream output, int duration)
+        // Since the spec doc only mentioned trimming to 5 secs, the method will use 5 as default
+        private static void CreateVideoSample(Stream input, Stream output, int duration = 5)
         {
 
             BinaryWriter Writer = null;

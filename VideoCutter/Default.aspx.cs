@@ -81,6 +81,11 @@ namespace VideoCutter
                 // for easier display. 
                 getVideoCutterMakerQueue().AddMessage(new CloudQueueMessage(System.Text.Encoding.UTF8.GetBytes(name)));
 
+                //var title = upload.FileName.Replace(".mp4", "");
+                var title = Path.GetFileNameWithoutExtension(upload.FileName);
+                blob.Metadata.Add("Title", title);
+                blob.SetMetadata();
+
                 System.Diagnostics.Trace.WriteLine(String.Format("*** WebRole: Enqueued '{0}'", path));
             }
         }
@@ -96,7 +101,7 @@ namespace VideoCutter
                 // blobs whose name begins with the string "thumbnails". 
                 // It returns an enumerator of their URLs. 
                 // Place that enumerator into list view as its data source. 
-                VideoCutterDisplayControl.DataSource = from o in getVideoCutterContainter().GetDirectoryReference("videocutter").ListBlobs()
+                VideoCutterDisplayControl.DataSource = from o in getVideoCutterContainter().GetDirectoryReference("videostrim").ListBlobs()
                                                      select new { Url = o.Uri };
 
                 // Tell the list view to bind to its data source, thereby
@@ -106,6 +111,13 @@ namespace VideoCutter
             catch (Exception)
             {
             }
+        }
+
+        protected String getTitle(Uri blobUri)
+        {
+            CloudBlockBlob blob = new CloudBlockBlob(blobUri);
+            blob.FetchAttributes();
+            return blob.Metadata["Title"];
         }
     }
 }
